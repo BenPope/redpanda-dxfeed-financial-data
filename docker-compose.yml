@@ -85,6 +85,16 @@ services:
   dxfeed-series:
     image: redpanda-dxfeed-financial-data/dxfeed-publish-series:latest
 
+  avro-producer:
+    image: redpanda-dxfeed-financial-data/avro-producer:latest
+    depends_on:
+        - redpanda
+
+  avro-consumer:
+    image: redpanda-dxfeed-financial-data/avro-consumer:latest
+    depends_on:
+        - redpanda
+
 volumes:
     web-tmp:
     api-cache:

@@ -10,4 +10,6 @@ docker build --target dxfeed-publish-order -t redpanda-dxfeed-financial-data/dxf
 docker build --target dxfeed-publish-underlying -t redpanda-dxfeed-financial-data/dxfeed-publish-underlying:latest .
 docker build --target dxfeed-publish-timeandsale -t redpanda-dxfeed-financial-data/dxfeed-publish-timeandsale:latest .
 docker build --target dxfeed-publish-series -t redpanda-dxfeed-financial-data/dxfeed-publish-series:latest .
+docker build --target avro-producer -t redpanda-dxfeed-financial-data/avro-producer:latest .
+docker build --target avro-consumer -t redpanda-dxfeed-financial-data/avro-consumer:latest .
 docker-compose up -d
