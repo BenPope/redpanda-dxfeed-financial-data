@@ -77,3 +77,17 @@ COPY avro/requirements.txt .
 RUN pip install -r requirements.txt
 COPY avro/avro_consumer.py .
 CMD [ "python3", "avro_consumer.py", "-b", "redpanda:29092", "-s", "http://redpanda:8081"]
+
+FROM python:3.8 AS protobuf-producer
+COPY protobuf/requirements.txt .
+RUN pip install -r requirements.txt
+COPY protobuf/user_pb2.py .
+COPY protobuf/protobuf_producer.py .
+CMD [ "python3", "protobuf_producer.py", "-b", "redpanda:29092", "-s", "http://redpanda:8081", "-c", "1000000"]
+
+FROM python:3.8 AS protobuf-consumer
+COPY protobuf/requirements.txt .
+RUN pip install -r requirements.txt
+COPY protobuf/user_pb2.py .
+COPY protobuf/protobuf_consumer.py .
+CMD [ "python3", "protobuf_consumer.py", "-b", "redpanda:29092", "-s", "http://redpanda:8081"]

@@ -12,4 +12,6 @@ docker build --target dxfeed-publish-timeandsale -t redpanda-dxfeed-financial-da
 docker build --target dxfeed-publish-series -t redpanda-dxfeed-financial-data/dxfeed-publish-series:latest .
 docker build --target avro-producer -t redpanda-dxfeed-financial-data/avro-producer:latest .
 docker build --target avro-consumer -t redpanda-dxfeed-financial-data/avro-consumer:latest .
+docker build --target protobuf-producer -t redpanda-dxfeed-financial-data/protobuf-producer:latest .
+docker build --target protobuf-consumer -t redpanda-dxfeed-financial-data/protobuf-consumer:latest .
 docker-compose up -d

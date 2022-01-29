@@ -95,6 +95,16 @@ services:
     depends_on:
         - redpanda
 
+  protobuf-producer:
+    image: redpanda-dxfeed-financial-data/protobuf-producer:latest
+    depends_on:
+        - redpanda
+
+  protobuf-consumer:
+    image: redpanda-dxfeed-financial-data/protobuf-consumer:latest
+    depends_on:
+        - redpanda
+
 volumes:
     web-tmp:
     api-cache:
